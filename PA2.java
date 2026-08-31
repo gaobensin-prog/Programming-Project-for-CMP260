@@ -10,24 +10,30 @@ import java.util.HashMap;
 public class PA2{
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        List<Double> nums = new ArrayList<>();
         Map<String, List<Double>> values = new HashMap<>();
         for (int i = 1; i < 4; i++){
-            System.out.print("Please Enter a Uppercase Letter: ");
+            List<Double> nums = new ArrayList<>();
+            System.out.print("Please Enter a Uppercase Letter:");
             String letter = input.nextLine();
             for (int j = 1; j < 3; j++){
                 if (j == 2){
                     System.out.print("Enter a Number for y:");
+                    Double num = input.nextDouble();
+                    input.nextLine();
+                    nums.add(num);
                 }else{
-                    System.out.print("Enter a Number for x: ");
+                    System.out.print("Enter a Number for x:");
+                    Double num = input.nextDouble();
+                    input.nextLine();
+                    nums.add(num);
                 }
-                Double num = input.nextDouble();
-                input.next();
-                nums.add(num);
-            values.put(letter, nums);
-        input.close();
             }
+            values.put(letter, nums);
+            nums = new ArrayList<>();
         }
+        System.out.println(values);
+            
+        
 
         //System.out.print("Choose a Distance Metric: ");
         //String distanceMetric = input.nextLine();
